@@ -1,4 +1,4 @@
-// Made with love from Asteral to Stonechat! btw you can delete this //
+// Made with love by Asteral for Stonechat! btw you can delete this //
 
 const { Client, GatewayIntentBits, ActivityType } = require('discord.js');
 const axios = require('axios');
@@ -33,7 +33,7 @@ client.once('ready', () => {
 let Prefix = 'YOUR_PREFIX';
 // Listen for messages
 client.on('messageCreate', async message => {
-    // Ignore messages that don't start with '!' or are sent by a bot
+    // Ignore messages that don't start with the prefix or are sent by a bot
     if (!message.content.startsWith(Prefix) || message.author.bot) return;
 
     const args = message.content.slice(1).trim().split(/ +/);
@@ -70,7 +70,7 @@ client.on('messageCreate', async message => {
             message.channel.send('Sorry, I couldn\'t fetch a quote right now.');
         }
     } else {
-        message.channel.send("Unknown command. Type `!help` to see all commands.");
+        message.channel.send(`Unknown command. Type ${Prefix}help to see all commands.`);
     }
 });
 
